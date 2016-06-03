@@ -21,7 +21,7 @@ npm i babel-plugin-stylus-compiler --save-dev
 
 ### CLI
 ```
-babel --plugins babel-plugin-stylus-compiler src/ --out-dir lib
+babel --plugins babel-plugin-stylus-compiler lib/ --out-dir build
 ```
 
 ## Change log
