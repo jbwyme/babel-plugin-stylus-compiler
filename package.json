@@ -1,7 +1,7 @@
 {
   "name": "babel-plugin-stylus-compiler",
   "version": "1.0.0",
-  "description": "A Babel 6 plugin for compiling stylus files into js variables",
+  "description": "A Babel 6 plugin for compiling stylus files into css",
   "main": "build/index.js",
   "scripts": {
     "build": "babel lib -d build",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com/mixpanel/panel.git"
+    "url": "git@github.com/jbwyme/babel-plugin-stylus-compiler.git"
   },
   "keywords": [
     "babel 6",
