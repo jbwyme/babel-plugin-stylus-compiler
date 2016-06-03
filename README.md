@@ -12,7 +12,14 @@ npm i babel-plugin-stylus-compiler --save-dev
 ```
 
 ## Usage
+### Babel config
+```
+{
+  "plugins": ["/home/josh/babel-plugin-stylus"]
+}
+```
 
+### CLI
 ```
 babel --plugins babel-plugin-stylus-compiler src/ --out-dir lib
 ```
