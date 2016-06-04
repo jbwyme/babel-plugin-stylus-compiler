@@ -15,7 +15,7 @@ npm i babel-plugin-stylus-compiler --save-dev
 ### Babel config
 ```
 {
-  "plugins": ["/home/josh/babel-plugin-stylus"]
+  "plugins": ["babel-plugin-stylus"]
 }
 ```
 
@@ -25,6 +25,9 @@ babel --plugins babel-plugin-stylus-compiler lib/ --out-dir build
 ```
 
 ## Change log
+### 1.0.4
+* Code and readme cleanup
+
 ### 1.0.3
 * Replace new lines with spaces when inlining the css
 

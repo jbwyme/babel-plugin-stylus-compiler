@@ -1,17 +1,17 @@
 {
   "name": "babel-plugin-stylus-compiler",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A Babel 6 plugin for compiling stylus files into css",
   "main": "build/index.js",
   "scripts": {
-    "build": "babel lib -d build",
+    "build": "babel src -d build",
     "prepublish": "npm run build",
-    "lint": "./node_modules/eslint/bin/eslint.js lib/*.js",
+    "lint": "./node_modules/eslint/bin/eslint.js src/*.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com/jbwyme/babel-plugin-stylus-compiler.git"
+    "url": "https://github.com/jbwyme/babel-plugin-stylus-compiler.git"
   },
   "keywords": [
     "babel 6",
