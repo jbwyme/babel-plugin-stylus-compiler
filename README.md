@@ -15,7 +15,7 @@ npm i babel-plugin-stylus-compiler --save-dev
 ### Babel config
 ```
 {
-  "plugins": ["babel-plugin-stylus"]
+  "plugins": ["babel-plugin-stylus-compiler"]
 }
 ```
 
