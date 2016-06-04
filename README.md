@@ -25,6 +25,9 @@ babel --plugins babel-plugin-stylus-compiler lib/ --out-dir build
 ```
 
 ## Change log
+### 1.0.2
+* Add more robust support for resolving `.styl` file in node_modules
+
 ### 1.0.1
 * Add .npmignore so `prepublish` works
 
