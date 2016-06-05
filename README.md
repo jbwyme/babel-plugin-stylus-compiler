@@ -21,10 +21,13 @@ npm i babel-plugin-stylus-compiler --save-dev
 
 ### CLI
 ```
-babel --plugins babel-plugin-stylus-compiler lib/ --out-dir build
+babel --plugins babel-plugin-stylus-compiler src/ --out-dir build
 ```
 
 ## Change log
+### 1.0.5
+* Add missing source folder
+
 ### 1.0.4
 * Code and readme cleanup
 
