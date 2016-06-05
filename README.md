@@ -25,6 +25,9 @@ babel --plugins babel-plugin-stylus-compiler src/ --out-dir build
 ```
 
 ## Change log
+### 1.0.6
+* Clean up dependencies 
+
 ### 1.0.5
 * Add missing source folder
 
