@@ -53,7 +53,7 @@ export default ({types: t}) => {
           if (node.specifiers && node.specifiers.length > 0) { // import into variable
             const id = node.specifiers[0].local.name;
             path.replaceWith(t.variableDeclaration('var', [t.variableDeclarator(t.identifier(id), t.stringLiteral(css))]));
-          } else {  // import without variable (inject into head)e
+          } else {  // import without variable (inject into head)
 
             // var _css = document.createElement('style');
             const docCreateElement = t.memberExpression(t.identifier('document'), t.identifier('createElement'));
