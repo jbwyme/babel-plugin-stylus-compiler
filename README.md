@@ -1,8 +1,13 @@
 # babel-plugin-stylus-compiler
 
-Compiles .styl files into raw css for import into a javascript variables
+Compiles .styl files into css:
 ```js
+// import into a javascript variable
 import button_css from './buttons.styl'
+```
+```js
+// direct injection as a <style> tag into document.head
+import './buttons.styl'
 ```
 
 ## Install
@@ -25,6 +30,10 @@ babel --plugins babel-plugin-stylus-compiler src/ --out-dir build
 ```
 
 ## Change log
+
+### 1.1
+* Allow direct injection into document.head as a style tag + tests
+
 ### 1.0.6
 * Clean up dependencies 
 
@@ -45,4 +54,3 @@ babel --plugins babel-plugin-stylus-compiler src/ --out-dir build
 
 ### 1.0.0
 * Initial release
-
