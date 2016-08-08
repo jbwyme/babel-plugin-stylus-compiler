@@ -1,4 +1,5 @@
-# babel-plugin-stylus-compiler
+# babel-plugin-stylus-compiler [![Build Status](https://travis-ci.org/jbwyme/babel-plugin-stylus-compiler.svg?branch=master)](https://travis-ci.org/jbwyme/babel-plugin-stylus-compiler)
+
 
 Compiles .styl files into css:
 ```js
