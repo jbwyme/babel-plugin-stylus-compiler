@@ -50,8 +50,28 @@ export default ({types: t}) => {
           const jsFile = state.file.opts.filename;
           const stylusFile = node.source.value;
           const css = compileStylusFile(jsFile, stylusFile);
-          const id = node.specifiers[0].local.name;
-          path.replaceWith(t.variableDeclaration('var', [t.variableDeclarator(t.identifier(id), t.stringLiteral(css))]));
+          if (node.specifiers && node.specifiers.length > 0) { // import into variable
+            const id = node.specifiers[0].local.name;
+            path.replaceWith(t.variableDeclaration('var', [t.variableDeclarator(t.identifier(id), t.stringLiteral(css))]));
+          } else {  // import without variable (inject into head)
+
+            // var _css = document.createElement('style');
+            const docCreateElement = t.memberExpression(t.identifier('document'), t.identifier('createElement'));
+            const createStyleTag = t.callExpression(docCreateElement, [t.stringLiteral('style')]);
+            const styleTagVar = path.scope.generateUidIdentifier('css');
+            const styleTagVarDeclarator = t.variableDeclarator(styleTagVar, createStyleTag);
+            const declareCssVar = t.variableDeclaration('var', [styleTagVarDeclarator]);
+
+            // _css.innerHTML = '{css from imported file}'
+            const cssInnerHTML = t.memberExpression(styleTagVar, t.identifier('innerHTML'));
+            const setCssFromFile = t.assignmentExpression('=', cssInnerHTML, t.stringLiteral(css));
+
+            // document.head.appendChild(_css)
+            const headAppendChild = t.memberExpression(t.identifier('document.head'), t.identifier('appendChild'));
+            const appendToHead = t.callExpression(headAppendChild, [styleTagVar]);
+
+            path.replaceWithMultiple([declareCssVar, setCssFromFile, appendToHead]);
+          }
         }
       },
     },
