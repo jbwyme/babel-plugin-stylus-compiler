@@ -32,7 +32,10 @@ babel --plugins babel-plugin-stylus-compiler src/ --out-dir build
 
 ## Change log
 
-### 1.1
+### 1.2.0
+* Add `./node_modules` to stylus include paths 
+
+### 1.1.0
 * Allow direct injection into document.head as a style tag + tests
 
 ### 1.0.6
