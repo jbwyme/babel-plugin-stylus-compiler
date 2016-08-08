@@ -32,6 +32,9 @@ babel --plugins babel-plugin-stylus-compiler src/ --out-dir build
 
 ## Change log
 
+### 1.3.0
+* Add autoprefixer
+
 ### 1.2.0
 * Add `./node_modules` to stylus include paths 
 

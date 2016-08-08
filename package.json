@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-stylus-compiler",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "A Babel 6 plugin for compiling stylus files into css",
   "main": "build/index.js",
   "scripts": {
@@ -20,6 +20,7 @@
   "author": "wymetyme@gmail.com",
   "license": "MIT",
   "dependencies": {
+    "autoprefixer-stylus": "^0.9.4",
     "stylus": "^0.54.5"
   },
   "devDependencies": {

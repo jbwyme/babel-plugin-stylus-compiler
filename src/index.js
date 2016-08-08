@@ -1,5 +1,6 @@
 /* global process */
 
+import autoprefixer from 'autoprefixer-stylus';
 import fs from 'fs';
 import { dirname, isAbsolute, resolve } from 'path';
 import stylus from 'stylus';
@@ -31,7 +32,12 @@ const compileStylusFile = (jsFile, stylusFile) => {
   }
 
   const stylusContent = fs.readFileSync(path, 'utf8');
-  return stylus(stylusContent).include(dirname(path)).include(resolve('./node_modules')).render().replace(/\n/g,' ');
+  return stylus(stylusContent)
+    .include(dirname(path))
+    .include(resolve('./node_modules'))
+    .use(autoprefixer())
+    .render()
+    .replace(/\n/g,' ');
 };
 
 const resolveModulePath = (filename) => {
