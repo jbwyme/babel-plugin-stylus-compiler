@@ -5,6 +5,21 @@ import fs from 'fs';
 import { dirname, isAbsolute, resolve } from 'path';
 import stylus from 'stylus';
 
+/*
+  MODULE REGEX WILL RETURN STYLUS NODE_MODULE IMPORT
+
+  WILL RETURN TRUE FOR
+  * @import '~module'
+  * @require '~another-module'
+
+  WILL RETURN FALSE FOR
+  * @require 'module.styl'
+  * @require 'module'
+  * div ~ input 
+*/
+
+const MODULE_REGEX = /(~*@).*/;
+
 const fileExists = filename => {
   try {
     const stats = fs.statSync(filename);
@@ -31,7 +46,13 @@ const compileStylusFile = (jsFile, stylusFile) => {
     throw Error('Cannot find stylus file: ' + stylusFile);
   }
 
-  const stylusContent = fs.readFileSync(path, 'utf8');
+  let stylusContent = fs.readFileSync(path, 'utf8');
+
+  if (stylusContent.match(MODULE_REGEX) !== null) {
+    const match = stylusContent.match(MODULE_REGEX);
+    stylusContent = stylusContent.replace(MODULE_REGEX, match[0].replace('~', ''));
+  }
+
   return stylus(stylusContent)
     .include(dirname(path))
     .include(resolve('./node_modules'))
