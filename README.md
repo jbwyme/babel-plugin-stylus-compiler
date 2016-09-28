@@ -31,6 +31,8 @@ babel --plugins babel-plugin-stylus-compiler src/ --out-dir build
 ```
 
 ## Change log
+### 1.4.0
+* Adding "node_modules" parsing for Stylus Require/Import Statements
 
 ### 1.3.0
 * Add autoprefixer
